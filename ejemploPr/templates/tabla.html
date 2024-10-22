@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if usuario %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>apellido</th>
+                <th>email</th>
+                <th>edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuario %}
+            <tr>
+                <th>{{ usuarios.nombre }}</th>
+                <th>{{ usuarios.apellido }}</th>
+                <th>{{ usuarios.email }}</th>
+                <th>{{ usuarios.edad }}</th>
+                <th><a href="/actu/{{ usuarios.id }}">actualizar</a></th>
+                <th><a href="/borrar/{{ usuarios.id }}">borrar</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1>nada</h1>
+    {% endif %}
+
+    <a href="../ag/">agregar usuario</a>
+</body>
+</html>
